@@ -1,10 +1,48 @@
 # librarymanagementsystem
- 
-validate inputs,
-test cases for search,
-add loggers in services,    
-coverages ok.
 
+Library Management System (Spring Boot)
+
+Library Management System built using Spring Boot, designed to manage books, authors, and users efficiently.
+It supports CRUD operations, pagination, validation, exception handling.
+
+## Features
+
+✅ Add, update, delete, and fetch books
+✅ Search books by title, author, or status
+✅ Pagination using Pageable
+✅ Input validation using @Valid and annotations like @NotNull, @Size, etc.
+✅ Logging using SLF4J/Logback
+✅ Unit testing with JUnit and Mockito
+
+
+
+
+## Tech Stack
+
+Backend -> Spring Boot (Web, JPA, Validation, Security)
+Database -> PostgreSQL / MySQL / H2 (for testing)
+ORM -> Hibernate
+Build Tool -> Maven / Gradle
+Testing -> JUnit 5, Mockito
+Logging -> SLF4J + Logback
+
+
+
+## REST Endpoints
+### -> Method   -   Endpoint    -   Description
+GET     /books      Get all books
+GET     /books/{id} 	Get book by ID
+POST    /books      Add a new book
+PUT     /books/{id} 	Update book details
+DELETE  /books/{id} 	Delete a book
+
+GET     /BookSearchBy/title     books search by title
+GET     /BookSearchBy/author    books search by author
+GET     //BookSearchBy/status/{status}      books search by status -> {AVAILABLE,LOST,ISSUED,RESERVED}
+
+
+
+### ddl-auto
 
 create -	Drops existing tables and creates new ones from your entities. Existing data is lost.
 create-drop -	Same as create, but also drops tables when app stops.
