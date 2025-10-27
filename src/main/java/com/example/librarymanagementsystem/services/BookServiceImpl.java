@@ -19,25 +19,29 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getAllBooks(){
-        logger.info("return list of books from service to controller");
-        return  bookRepositry.findAll();
+        logger.info("fetching data from database and return to controller");
+        return bookRepositry.findAll();
     }
 
     @Override
     public Optional<Book> getBookById(Integer id) {
-        logger.info("successfully return book detail found by book id");
-        return bookRepositry.findById(id);
+        logger.info("fetch data from database");
+        Optional<Book> book= bookRepositry.findById(id);
+        logger.info("fetched book is "+book);
+        return  book;
     }
 
     @Override
     public Book createBook(Book book) {
-        logger.info("book has been created at service layer and return to controller");
-        return  bookRepositry.save(book);
+        logger.info("storing book data in database, Book Record : "+book);
+        Book savedbook= bookRepositry.save(book);
+        logger.info("book created with"+savedbook);
+        return savedbook;
     }
 
     @Override
     public Book updateBook(Integer id, Book updatedbook) {
-        logger.info("book details now has been updated and return to controller ");
+        logger.info("changeable book id is: "+id+" and updated value object : "+ updatedbook);
         return  bookRepositry.findById(id).map(book->{
             book.setTitle(updatedbook.getTitle());
             book.setAuthor(updatedbook.getAuthor());

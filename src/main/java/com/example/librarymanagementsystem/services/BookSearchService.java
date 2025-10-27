@@ -12,4 +12,6 @@ public interface BookSearchService {
     Page<Book> searchBookByTitle(String title,int page, int size);
     Set<Book> searchBookByStatus(BookStatus status);
     List<Book> searchBooksByPriceRange(Double minPrice,Double maxPrice);
+
+    List<Book> searchBooks(Long id, String title, String author);
 }
